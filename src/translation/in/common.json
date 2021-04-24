@@ -6,6 +6,66 @@
     "btn_signin_title": "साइन इन करें",
     "menu_signin_btn_title": "साइन इन करें",
     "menu_signin_sub_title": "नए ग्राहक",
-    "menu_signing_register_text": "यहाँ से शुरू"
+    "menu_signing_register_text": "यहाँ से शुरू",
+    "product_category": {
+      "all": "सब",
+      "smartphone": "स्मार्टफोन",
+      "kitchen_hardware": "रसोई हार्डवेयर",
+      "prime_deal": "प्रधान सौदे",
+      "book": "पुस्तक"
     }
+  },
+  "footer": {
+    "back_to_top": "वापस शीर्ष पर",
+    "upper": {
+      "col1": {
+        "title": "हमारे बारे में जानिए",
+        "about": "के बारे में",
+        "career": "कैरियर",
+        "press_release": "प्रेस विज्ञप्ति",
+        "investment": "निवेश",
+        "offers": "प्रदान करता है"
+      },
+      "col2": {
+        "title": "हमसे जुडे",
+        "facebook": "फेसबुक",
+        "twitter": "ट्विटर",
+        "instragram": "इंस्टाग्राम"
+      },
+      "col3": {
+        "title": "हमारे साथ पैसा बनाओ",
+        "amazon_seller": "अमेज़न पर बेचें",
+        "affiliate_marketing": "सहबद्ध विपणन",
+        "fullfilment_center": "फुलफिलमेंट सेंटर",
+        "advertise": "अपने उत्पाद का विज्ञापन करें",
+        "amazon_pay": "अमेज़न पे"
+      },
+      "col4": {
+        "title": "हमें अपनी सहायता करने दें",
+        "covid": "कोविड 19",
+        "your_account": "Your Account",
+        "returns": "आपका खाता",
+        "funding": "धन देना",
+        "help": "हाथ बटाना"
+      }
+    },
+    "ending_title": "मोजो-दुकान इंक."
+  },
+   "login": {
+    "title": "लॉग इन करें",
+    "lbl_email": "ईमेल:",
+    "lbl_password": "कुंजिका:",
+    "email_info": "हम आपके ईमेल को कभी भी किसी और के साथ साझा नहीं करेंगे।",
+    "password_info": "पासवर्ड कम से कम 6 अंकों का होना चाहिए।",
+    "btn_signin": "साइन इन करें",
+    "seperator_text": "अमेज़न के लिए नया?",
+    "btn_register_text": "अपना अमेज़न खाता बनाएँ",
+    "btn_login_google": "Google के साथ साइन इन करें",
+    "btn_login_facebook": "फ़ेसबुक से साइन इन करें"
+  },
+  "Validation": {
+    "email_error": "पासवर्ड में कुछ त्रुटि।",
+    "password_error": "पासवर्ड में कुछ त्रुटि।",
+    "ok": "ठीक है"
+  }
 }
