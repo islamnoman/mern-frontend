@@ -63,9 +63,9 @@ function NavbarView(props) {
                 </div>
               </div>
               <input type="text" className={`form-control ${rtl}`} size="50" name="query" id="query"
-                onChange={props.handleQueryChange} value={props.query} 
+                onClick={props.handleQueryChange} value={props.query} 
               />
-              <input type="text" name="category" id="category" value={props.selectedCat} hidden />
+              <input type="text" name="category" id="category" value={props.selectedCat} readOnly hidden />
               <div className="input-group-append">
                 <button type="submit" className="btn btn-warning">
                   <i className="fas fa-search"></i>
