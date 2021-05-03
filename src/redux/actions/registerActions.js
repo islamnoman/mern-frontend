@@ -20,13 +20,16 @@ export const registerRequest = (user, history) => (dispatch) => {
         `${apiBaseURL}/api/user/register`,
         user
     ).then((res)=>{
-        dispatch(registerResponse())
         // console.log(res.data)
+        // redirect user login page
         history.push("/login")
     }).catch((err)=>{
-        dispatch(registerResponse())
+        // set error related to register
         dispatch(registerError(err.response.data.errors))
     })
+
+    // user reg res received
+    dispatch(registerResponse())
 }
 
 export const registerError = (payload) => {

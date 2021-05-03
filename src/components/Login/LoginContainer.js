@@ -28,6 +28,13 @@ class LoginContainer extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        this.props.loginRequest(user, this.props.history)
+        
         // Swal.fire("Noman Islam.").then(()=>{
         //     Swal.fire(`API URL: ${apiBaseURL}`);
         // });
