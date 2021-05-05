@@ -22,14 +22,19 @@ export const registerRequest = (user, history) => (dispatch) => {
     ).then((res)=>{
         // console.log(res.data)
         // redirect user login page
+        // user reg res received
+        dispatch(registerResponse())
+
         history.push("/login")
     }).catch((err)=>{
         // set error related to register
-        dispatch(registerError(err.response.data.errors))
+        dispatch(registerError(err.response.data.error))
+
+        // user reg res received
+        dispatch(registerResponse())
     })
 
-    // user reg res received
-    dispatch(registerResponse())
+    
 }
 
 export const registerError = (payload) => {

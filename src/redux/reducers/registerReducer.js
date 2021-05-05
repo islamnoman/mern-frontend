@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     isLoading: false,
-    errors : {
+    error : {
 
     }
 }
@@ -27,14 +27,14 @@ export default function registerReducer(state = initialState, action){
         case REGISTER_ERROR:
             return {
                 ...state,
-                errors : action.payload,
-                isLoading: false
+                error : action.payload,
+                // isLoading: false
             }
         case REGISTER_ERROR_CLEAR:
             return {
                 ...state,
-                errors : {},
-                isLoading: false
+                error : {},
+                // isLoading: false
             }
         default:
             return state
