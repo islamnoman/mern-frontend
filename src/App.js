@@ -15,8 +15,15 @@ import Footer from './components/layout/Footer';
 import LoginContainer from './components/Login/LoginContainer';
 import RegisterContainer from './components/Register/RegisterContainer';
 import YourAccountContainer from './components/YourAccount/YourAccountContainer';
+import setAuthToken from './utils/setAuthToken';
+import { SET_LOGIN_USER } from './redux/actions/types';
 
-
+// check localStorage for data
+if (localStorage.jwtToken && localStorage.user){
+    setAuthToken(localStorage.jwtToken)
+    store.dispatch({ type: SET_LOGIN_USER, payload: JSON.parse(localStorage.user) })
+    // window.location.href = "/your_account"
+}
 
 
 

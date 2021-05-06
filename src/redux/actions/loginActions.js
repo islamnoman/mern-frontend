@@ -9,6 +9,7 @@ import {
 
 import axios from 'axios';
 import { apiBaseURL } from './../../utils/constant';
+import setAuthToken from './../../utils/setAuthToken';
 
 
 export const loginRequest = (user, history) => (dispatch) => {
@@ -28,6 +29,13 @@ export const loginRequest = (user, history) => (dispatch) => {
 
        // set isloading is false
        dispatch(loginResponse())
+
+       //store jwt token in localStorage
+       localStorage.setItem("jwtToken", res.data.token);
+       localStorage.setItem("user", JSON.stringify(res.data.user))
+
+       setAuthToken(res.data.token)
+
 
        // redirect account page or admin page
        history.push("/your_account")
@@ -72,6 +80,10 @@ export const setLoginUser = (payload) => {
 export const logoutUser = (history) => dispatch => {
      
     dispatch({ type: LOGOUT_USER })
+    //sdelete everything in localStorage
+    localStorage.clear();
+
+    setAuthToken(false)
 
     // redirect user to home page
     history.push("/")
