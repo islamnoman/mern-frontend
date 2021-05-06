@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import YourAccountView from './YourAccountView';
+import{ connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class YourAccountContainer extends Component {
     constructor(props){
@@ -11,6 +13,13 @@ class YourAccountContainer extends Component {
     }
 
     
+    componentDidMount(){
+      // if not authenticated user send 
+      if (!this.props.login.isAuthenticated){
+          this.props.history.push("/login")
+      }
+    }
+    
     render() {
         return (
           <YourAccountView
@@ -19,4 +28,13 @@ class YourAccountContainer extends Component {
         )
     }
 }
-export default YourAccountContainer;
+
+const mapStateToProps = (state) => ({
+    login: state.login
+})
+
+const mapDispatchToProps = {
+    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (withRouter(YourAccountContainer))

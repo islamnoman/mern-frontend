@@ -1,8 +1,59 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { apiBaseURL } from './../../../utils/constant';
+
 
 function NavbarView(props) {
   const { t, rtl } = props;
+  const { isAuthenticated, user } = props.login
+
+  const authLinks = (
+    <li className="nav-item dropdown px-2">
+      <a className="nav-link" href="login.html" id="userAccount" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <img 
+          src={apiBaseURL + "/profile_pic/" + user.profile_pic}
+          width="40"
+          height="40"
+          className="rounded-circle"
+        />
+      </a>
+      <div className="dropdown-menu px-3" aria-labelledby="userAccount">
+        <div className="d-flex flex-column justify-content-center">
+          <button type="button" onClick={props.logoutUser} className={`btn btn-warning w-75 btn-sm font-weight-bold ${rtl}}`}>Logout</button>
+        </div>
+      </div>
+    </li>
+  )
+
+  const guestLinks = (
+    <li className="nav-item dropdown px-2">
+      <a className="nav-link" href="login.html" id="userAccount" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i className="fas fa-2x fa-user-circle"></i>
+      </a>
+      <div className="dropdown-menu px-3" aria-labelledby="userAccount">
+        <div className="d-flex flex-column justify-content-center">
+          <Link to="/login" className={`btn btn-warning w-75 btn-sm font-weight-bold ${rtl}}`}>{t('navbar.menu_signin_btn_title')}</Link>
+          <small>{t('navbar.menu_signin_sub_title')}?<Link to="/register"> {t('navbar.menu_signing_register_text')}</Link></small>
+        </div>
+      </div>
+    </li>
+  )
+
+  const drawerAuthLinks = (
+    <React.Fragment>
+      <Link to="/your_account" className={`btn btn-outline-success my-2 btn-sm ${rtl}`}>{t('navbar.btn_account_title')}</Link>
+      <button type="button" onClick={props.logoutUser} className={`btn btn-warning my-2  btn-sm ${rtl}`}>{t('navbar.logout')}</button>
+    </React.Fragment>
+  )
+
+  const drawerGuestLinks = (
+    <React.Fragment>
+      <Link to="/register" className={`btn btn-outline-success my-2 btn-sm ${rtl}`}>{t ('navbar.register')}</Link>
+      <Link to="/login" className={`btn btn-warning my-2  btn-sm ${rtl}`}>{t('navbar.btn_signin_title')}</Link>
+    </React.Fragment>
+  )
 
   return (
     <React.Fragment>
@@ -23,8 +74,7 @@ function NavbarView(props) {
             </div>
             <div className="drawer-body">
               <h6 className={`text-muted text-uppercase ${rtl}`}>{t('navbar.sidebar_help_title')}</h6>
-              <a href="your_account.html" className={`btn btn-outline-success my-2 btn-sm ${rtl}`}>{t ('navbar.btn_account_title')}</a>
-              <Link to="/login" className={`btn btn-warning my-2  btn-sm ${rtl}`}>{t('navbar.btn_signin_title')}</Link>
+              {isAuthenticated ? drawerAuthLinks : drawerGuestLinks}
             </div>
             <div className="drawer-footer">
               <button type="button" className="btn btn-outline-danger btn-sm" data-dismiss="drawer" aria-label="Close">
@@ -121,18 +171,7 @@ function NavbarView(props) {
             </li> 
             {/* <!-- Preffered Language Ends --> */}
             {/* <!-- User Account Starts --> */}
-            <li className="nav-item dropdown px-2">
-              <a className="nav-link" href="login.html" id="userAccount" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i className="fas fa-2x fa-user-circle"></i>
-              </a>
-              <div className="dropdown-menu px-3" aria-labelledby="userAccount">
-                <div className="d-flex flex-column justify-content-center">
-                  <Link to="/login" className={`btn btn-warning w-75 btn-sm font-weight-bold ${rtl}}`}>{t('navbar.menu_signin_btn_title')}</Link>
-                  <small>{t('navbar.menu_signin_sub_title')}?<Link to="/register"> {t('navbar.menu_signing_register_text')}</Link></small>
-                </div>
-              </div>
-            </li>
+            {isAuthenticated ? authLinks : guestLinks}
              {/* <!-- User Account Ends --> */}
             {/* <!-- Shopping Cart Starts --> */}
             <li className="nav-item px-2">

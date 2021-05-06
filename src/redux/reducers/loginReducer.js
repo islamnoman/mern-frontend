@@ -3,7 +3,8 @@ import {
     LOGIN_RESPONSE,
     LOGIN_REQUEST,
     LOGIN_ERROR_CLEAR,
-    SET_LOGIN_USER
+    SET_LOGIN_USER,
+    LOGOUT_USER
 } from './../actions/types'
 
 const initialState = {
@@ -50,6 +51,12 @@ export default function loginReducer(state = initialState, action){
                 // isLoading: false,
                 isAuthenticated: true,
                 user: action.payload
+            }
+        case LOGOUT_USER:
+            return {
+                ...state,
+                isAuthenticated: false,
+                user: {}
             }
         default:
             return state

@@ -18,14 +18,14 @@ i18next.init({
         en: {
             common: common_en               // 'common' is our custom namespace
         },
-        bd: {
-            common: common_bd
-        },
         in: {
             common: common_in
         },
         pk: {
             common: common_pk
+        },
+        bd: {
+            common: common_bd
         },
     },
 });
