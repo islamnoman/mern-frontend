@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function YourAccountView(props) {
     const { t, i18n } = props;
@@ -10,32 +11,32 @@ function YourAccountView(props) {
             <h2 className={`${rtl}`}>{t('your_account.title')}</h2>
             {/* <!-- Account Panel Starts --> */}
             <div className="row">
-            <div className="col-md-4">
-                <a href="your_orders.html" className="btn w-100">
-                <div className="card">
-                    <div className="card-body">
-                    <div className="card-title">
-                        <i className="fas fa-2x fa-shopping-bag"></i>
-                        <span className={`h4 ${rtl}`}>{t('your_account.btn1.title')}</span>
+                <div className="col-md-4">
+                    <a href="your_orders.html" className="btn w-100">
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="card-title">
+                                <i className="fas fa-2x fa-shopping-bag"></i>
+                                <span className={`h4 ${rtl}`}>{t('your_account.btn1.title')}</span>
+                            </div>
+                        <small className={`text-muted ${rtl}`}>{t('your_account.btn1.sub_title')}</small>
+                        </div>
                     </div>
-                    <small className={`text-muted ${rtl}`}>{t('your_account.btn1.sub_title')}</small>
-                    </div>
+                    </a>
                 </div>
-                </a>
-            </div>
 
             <div className="col-md-4">
-                <a href="new_change_password.html" className="btn w-100">
-                <div className="card">
-                    <div className="card-body">
-                    <div className="card-title">
-                        <i className="fas fa-2x fa-key"></i>
-                        <span className={`h4 ${rtl}`}>{t('your_account.btn2.title')}</span>
+                <Link to="/password_change" className="btn w-100">
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="card-title">
+                                <i className="fas fa-2x fa-key"></i>
+                                <span className={`h4 ${rtl}`}>{t('your_account.btn2.title')}</span>
+                            </div>
+                        <small className={`text-muted ${rtl}`}>{t('your_account.btn2.sub_title')}</small>
+                        </div>
                     </div>
-                    <small className={`text-muted ${rtl}`}>{t('your_account.btn2.sub_title')}</small>
-                    </div>
-                </div>
-                </a>
+                </Link>
             </div>
 
             <div className="col-md-4">
