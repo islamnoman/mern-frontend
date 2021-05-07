@@ -45,7 +45,7 @@ function YourAccountView(props) {
                     <div className="card-body">
                     <div className="card-title">
                         <i className="fas fa-2x fa-map-marked-alt"></i>
-                        <span className={`h4 ${rtl}`}>{t('your_account.btn2.title')}</span>
+                        <span className={`h4 ${rtl}`}>{t('your_account.btn3.title')}</span>
                     </div>
                     <small className={`text-muted ${rtl}`}>{t('your_account.btn3.sub_title')}</small>
                     </div>
@@ -57,17 +57,17 @@ function YourAccountView(props) {
 
             <div className="row">
             <div className="col-md-4">
-                <a href="seller_account_intro.html" className="btn w-100">
-                <div className="card">
-                    <div className="card-body">
-                    <div className="card-title">
-                        <i className="fas fa-universal-access fa-2x"></i>
-                        <span className={`h4 ${rtl}`}>{t('your_account.btn4.title')}</span>
+                <Link to="/seller_intro" className="btn w-100">
+                    <div className="card">
+                        <div className="card-body">
+                        <div className="card-title">
+                            <i className="fas fa-universal-access fa-2x"></i>
+                            <span className={`h4 ${rtl}`}>{t('your_account.btn4.title')}</span>
+                        </div>
+                        <small className={`text-muted ${rtl}`}>{t('your_account.btn3.sub_title')}</small>
+                        </div>
                     </div>
-                    <small className={`text-muted ${rtl}`}>{t('your_account.btn3.sub_title')}</small>
-                    </div>
-                </div>
-                </a>
+                </Link>
             </div>
             </div>
             {/* <!-- Your Account Ends --> */}

@@ -18,6 +18,8 @@ import YourAccountContainer from './components/YourAccount/YourAccountContainer'
 import setAuthToken from './utils/setAuthToken';
 import { SET_LOGIN_USER } from './redux/actions/types';
 import PasswordChangeContainer from './components/PasswordChange/PasswordChangeContainer';
+import SellerIntroContainer from './components/SellerAccount/SellerIntroContainer';
+
 
 // check localStorage for data
 if (localStorage.jwtToken && localStorage.user){
@@ -35,6 +37,7 @@ function App() {
     const Register = () => (<RegisterContainer t={t} i18n={i18n} />)
     const yourAccount = () => (<YourAccountContainer t={t} i18n={i18n} />)
     const PassChange = () => ( <PasswordChangeContainer t={t} i18n={i18n} />)
+    const SellerIntro = () => ( <SellerIntroContainer t={t} i18n={i18n} />)
 
     return (
         <Provider store={store}>
@@ -48,6 +51,7 @@ function App() {
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/your_account" component={yourAccount}/>
                         <Route exact path="/password_change" component={PassChange} />
+                        <Route exect path="/seller_intro" component={SellerIntro} />
                     <Footer t={t} i18n={i18n} />
                 </div>
             </Router>
